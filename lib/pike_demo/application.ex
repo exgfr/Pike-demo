@@ -9,7 +9,6 @@ defmodule PikeDemo.Application do
   def start(_type, _args) do
     children = [
       PikeDemoWeb.Telemetry,
-      PikeDemo.Repo,
       {DNSCluster, query: Application.get_env(:pike_demo, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: PikeDemo.PubSub},
       # Start the Finch HTTP client for sending emails
