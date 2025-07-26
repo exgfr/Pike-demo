@@ -20,10 +20,50 @@ defmodule PikeDemoWeb.Router do
     get "/", PageController, :home
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", PikeDemoWeb do
-  #   pipe_through :api
-  # end
+  # API endpoints
+  scope "/api", PikeDemoWeb do
+    pipe_through :api
+
+    scope "/users" do
+      get "/", UsersController, :index
+      get "/:id", UsersController, :show
+      post "/", UsersController, :create
+      put "/:id", UsersController, :update
+      delete "/:id", UsersController, :delete
+    end
+
+    scope "/products" do
+      get "/", ProductsController, :index
+      get "/:id", ProductsController, :show
+      post "/", ProductsController, :create
+      put "/:id", ProductsController, :update
+      delete "/:id", ProductsController, :delete
+    end
+
+    scope "/orders" do
+      get "/", OrdersController, :index
+      get "/:id", OrdersController, :show
+      post "/", OrdersController, :create
+      put "/:id", OrdersController, :update
+      delete "/:id", OrdersController, :delete
+    end
+
+    scope "/categories" do
+      get "/", CategoriesController, :index
+      get "/:id", CategoriesController, :show
+      post "/", CategoriesController, :create
+      put "/:id", CategoriesController, :update
+      delete "/:id", CategoriesController, :delete
+    end
+
+    scope "/settings" do
+      get "/", SettingsController, :index
+      get "/:id", SettingsController, :show
+      post "/", SettingsController, :create
+      put "/:id", SettingsController, :update
+      delete "/:id", SettingsController, :delete
+    end
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:pike_demo, :dev_routes) do
