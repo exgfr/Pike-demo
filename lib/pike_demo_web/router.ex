@@ -31,6 +31,8 @@ defmodule PikeDemoWeb.Router do
   scope "/api_authed", PikeDemoWeb do
     pipe_through :api_authed
 
+    get "/debug", DebugController, :debug
+
     scope "/users" do
       get "/", UsersController, :index
       get "/:id", UsersController, :show
@@ -75,6 +77,8 @@ defmodule PikeDemoWeb.Router do
   # API endpoints
   scope "/api", PikeDemoWeb do
     pipe_through :api
+
+    get "/debug", DebugController, :debug
 
     scope "/users" do
       get "/", UsersController, :index
