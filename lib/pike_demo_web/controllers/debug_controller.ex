@@ -2,7 +2,7 @@ defmodule PikeDemoWeb.DebugController do
   use PikeDemoWeb, :controller
   use Pike.Authorization, resource: "Debug"
 
-  require_permission (action: :read)
+  @require_permission action: :read
   def debug(conn, _params) do
     key = conn.assigns[:pike_api_key]
 
