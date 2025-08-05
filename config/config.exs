@@ -10,6 +10,8 @@ import Config
 config :pike_demo,
   generators: [timestamp_type: :utc_datetime]
 
+config :pike, :store, PikeDemo.KeyStore
+
 # Configures the endpoint
 config :pike_demo, PikeDemoWeb.Endpoint,
   url: [host: "localhost"],
