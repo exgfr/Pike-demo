@@ -17,6 +17,7 @@ defmodule PikeDemo.DevBootHook do
       key: "abc123",
       enabled: true,
       permissions: [
+        %{resource: "Debug", scopes: [:read]},
         %{resource: "Health", scopes: [:read]},
         %{resource: "Products", scopes: [:read, :write]}
       ]
